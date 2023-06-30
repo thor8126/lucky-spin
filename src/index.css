@@ -1,0 +1,236 @@
+:root {
+  --pink: #c700d2;
+  --purple: #6600dd;
+  --skyblue: #45c3ee;
+  --red: #f4343e;
+  --orange: #ff9100;
+  --yellow: #fff539;
+  --green: #80ea53;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.App {
+  background: linear-gradient(to left, var(--skyblue), var(--purple));
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: -30px;
+}
+
+.wheel {
+  background-color: grey;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  border: 3px solid #ffd700;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+button {
+  padding: 10px 20px;
+  width: 100px;
+}
+
+.segment {
+  clip-path: polygon(50% 50%, 360% 100%, 0 100%);
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom center;
+  background-color: var(--pink);
+}
+
+.segment3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 320% 100%, 0 100%);
+  transform: rotate(240deg);
+  background-color: var(--purple);
+}
+
+.segment2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 50%, 0 100%, 0 -90%);
+  transform: rotate(360deg);
+  background-color: var(--skyblue);
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.popup-content h2 {
+  margin-bottom: 10px;
+}
+
+.popup-content .prize {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.popup-content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.segment2 h1 {
+  margin-top: 45%;
+  margin-left: 7%;
+  font-size: 1.2rem;
+  color: white;
+  transform: rotate(8deg);
+}
+
+.segment h1 {
+  margin-top: 92%;
+  margin-left: 36%;
+  font-size: 1.2rem;
+  color: white;
+  transform: rotate(68deg);
+}
+
+.segment3 h1 {
+  margin-top: 92%;
+  margin-left: 36%;
+  font-size: 1.2rem;
+  color: white;
+  transform: rotate(68deg);
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 45px solid var(--orange);
+  position: absolute;
+  z-index: 444;
+  transform: rotate(180deg);
+  top: 80px;
+}
+
+.center {
+  position: absolute;
+  z-index: 444;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #fff539;
+  background-color: #f4343e;
+  top: 42%;
+  left: 42%;
+}
+
+.button-1 {
+  background-color: #ea4c89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #f082ac;
+}
+
+.cookiesContent {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  border-radius: 20px;
+  padding: 30px 30px 70px;
+}
+
+img {
+  width: 82px;
+  margin-bottom: 15px;
+}
+p {
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+button.accept {
+  background-color: #ed6755;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  padding: 14px;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0px 6px 18px -5px rgba(237, 103, 85, 1);
+  margin-top: 10px;
+}
+
+.header {
+  position: absolute;
+  z-index: 333;
+  top: 10px;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 2rem;
+}
