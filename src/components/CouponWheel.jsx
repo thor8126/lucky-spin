@@ -18,7 +18,7 @@ const CouponWheel = () => {
       let selectedPrize = "";
 
       if (spinCount === 0) {
-        rotationAngle = 5700; // Positive value for counterclockwise rotation
+        rotationAngle = 5700;
         selectedPrize = "Try Again";
         setSpinCount(1);
         setSpinning(true);
@@ -27,11 +27,11 @@ const CouponWheel = () => {
         const randomIndex = Math.floor(Math.random() * 2);
         selectedPrize = prizes[randomIndex];
         if (selectedPrize === "50% Off") {
-          rotationAngle = 11610; // Positive value for counterclockwise rotation
+          rotationAngle = 11610;
           setSpinning(true);
           setSpinCount(0);
         } else if (selectedPrize === "Gift Card") {
-          rotationAngle = 6280; // Positive value for counterclockwise rotation
+          rotationAngle = 6280;
           setSpinning(true);
           setSpinCount(0);
         }
@@ -46,7 +46,7 @@ const CouponWheel = () => {
       gsap.to(wheelRef.current, {
         rotation: rotationAngle,
         duration: 6.2,
-        ease: "power1.inOut", // Adjust easing function for smooth rotation
+        ease: "power1.inOut",
         onComplete: () => {
           if (!spinning) {
             gsap.set(wheelRef.current, { rotation: rotationAngle });

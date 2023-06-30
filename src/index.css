@@ -147,11 +147,6 @@ button {
   transform: rotate(180deg);
   top: 80px;
 }
-@media (max-width: 767px) {
-  .arrow {
-    top: 199px;
-  }
-}
 
 .center {
   position: absolute;
@@ -238,4 +233,18 @@ button.accept {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 2rem;
+}
+
+.footer {
+  position: absolute;
+  z-index: 333;
+  bottom: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@media (max-width: 767px) {
+  .arrow {
+    top: 100px;
+  }
 }
