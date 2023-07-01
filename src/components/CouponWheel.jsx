@@ -18,7 +18,7 @@ const CouponWheel = () => {
       let selectedPrize = "";
 
       if (spinCount === 0) {
-        rotationAngle = 5700;
+        rotationAngle = getRandomAngle(-5850, -5750); // Generate a random angle within the given range
         selectedPrize = "Try Again";
         setSpinCount(1);
         setSpinning(true);
@@ -27,11 +27,11 @@ const CouponWheel = () => {
         const randomIndex = Math.floor(Math.random() * 2);
         selectedPrize = prizes[randomIndex];
         if (selectedPrize === "50% Off") {
-          rotationAngle = 11610;
+          rotationAngle = getRandomAngle(-5990, -6090); // Generate a random angle within the given range
           setSpinning(true);
           setSpinCount(0);
         } else if (selectedPrize === "Gift Card") {
-          rotationAngle = 6280;
+          rotationAngle = getRandomAngle(-6230, -6300); // Generate a random angle within the given range
           setSpinning(true);
           setSpinCount(0);
         }
@@ -41,7 +41,7 @@ const CouponWheel = () => {
         setPrize(selectedPrize);
         setShowPopup(true);
         setSpinning(false);
-      }, 6600);
+      }, 6250);
 
       gsap.to(wheelRef.current, {
         rotation: rotationAngle,
@@ -54,6 +54,15 @@ const CouponWheel = () => {
         },
       });
     }
+  };
+
+  const getRandomAngle = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
+
+  const resetWheel = () => {
+    setShowPopup(false);
+    gsap.set(wheelRef.current, { rotation: 0 });
   };
 
   return (
@@ -91,9 +100,9 @@ const CouponWheel = () => {
                 />
                 <br />
 
-                <h2>Congrats!! You've won a amazon gift card!!</h2>
+                <h2>Congrats!! You've won an Amazon gift card!!</h2>
                 <br />
-                <code>Copy code:- XDV754SC42857DSS</code>
+                <code>Copy code: XDV754SC42857DSS</code>
               </>
             )}
             {prize === "50% Off" && (
@@ -104,9 +113,9 @@ const CouponWheel = () => {
                 />
                 <br />
 
-                <h2>50 % off on your next purchase!!</h2>
+                <h2>50% off on your next purchase!!</h2>
                 <br />
-                <code>Copy code:- NCVH54SDSF6AS4ASD</code>
+                <code>Copy code: NCVH54SDSF6AS4ASD</code>
               </>
             )}
             {prize === "Try Again" && (
@@ -120,7 +129,7 @@ const CouponWheel = () => {
               </>
             )}
 
-            <button className="accept" onClick={() => setShowPopup(false)}>
+            <button className="accept" onClick={resetWheel}>
               Close!
             </button>
           </div>
